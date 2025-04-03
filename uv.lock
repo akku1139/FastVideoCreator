@@ -7,14 +7,13 @@ name = "fastvideocreator"
 version = "0.1.0"
 source = { virtual = "." }
 
-[package.optional-dependencies]
-typing = [
+[package.dev-dependencies]
+dev = [
     { name = "pygobject-stubs" },
 ]
 
-[package.metadata]
-requires-dist = [{ name = "pygobject-stubs", marker = "extra == 'typing'", specifier = ">=2.13.0" }]
-provides-extras = ["typing"]
+[package.metadata.requires-dev]
+dev = [{ name = "pygobject-stubs", specifier = ">=2.13.0" }]
 
 [[package]]
 name = "pygobject-stubs"

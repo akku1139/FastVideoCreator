@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
 
-[project.optional-dependencies]
-typing = [
+[dependency-groups]
+dev = [
     "pygobject-stubs>=2.13.0",
 ]
