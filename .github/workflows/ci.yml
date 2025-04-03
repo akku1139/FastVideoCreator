@@ -29,12 +29,12 @@ jobs:
       - name: Lint
         if: ${{ !cancelled() }}
         run: |
-          uvx pylint $(find ./ -name '*.py' | xargs)
+          uvx ruff
 
       - name: Type check
         if: ${{ !cancelled() }}
         run: |
-          uvx ruff $(find ./ -name '*.py' | xargs)
+          uvx pyright $(find ./ -name '*.py' | xargs)
 
 #        env:
 #          PYTHONPATH: ${{ github.workspace }}
