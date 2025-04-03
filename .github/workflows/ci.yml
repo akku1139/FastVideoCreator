@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install Dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Lint
+        if: ${{ !cancelled() }}
+        run: |
+          uvx pylint $(find ./ -name '*.py' | xargs)
+
+      - name: Type check
+        if: ${{ !cancelled() }}
+        run: |
+          uvx ruff $(find ./ -name '*.py' | xargs)
+
+#        env:
+#          PYTHONPATH: ${{ github.workspace }}
