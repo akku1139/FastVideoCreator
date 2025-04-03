@@ -29,7 +29,7 @@ jobs:
       - name: Lint
         if: ${{ !cancelled() }}
         run: |
-          uvx ruff
+          uvx ruff check
 
       - name: Type check
         if: ${{ !cancelled() }}
