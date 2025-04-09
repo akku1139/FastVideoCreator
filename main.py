@@ -1,10 +1,10 @@
+import sys
+
 import gi
-gi.require_version("GLib", "2.0")
+gi.require_version("GLib", "2.0") 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Gio", "2.0")
-
-import sys
-from gi.repository import GLib, Gtk, Gio
+from gi.repository import GLib, Gtk, Gio # noqa: E402
 
 class App(Gtk.Application):
   def __init__(self):
