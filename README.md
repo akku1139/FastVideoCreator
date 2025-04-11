@@ -9,6 +9,14 @@ uv sync
 uv venv --system-site-packages
 ```
 
+#### Deps
+
+##### Arch Linux
+
+- `gtk4`
+- `gst-python`
+-
+
 ### Tips
 
 Ctrl+Shift+D: Open GTK Inspector
